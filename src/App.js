@@ -1,27 +1,21 @@
+import * as React from "react";
 import "./App.css";
-import Aboutme from "./component/aboutme";
-import Bodyset from "./component/bodyset";
-import Contactme from "./component/contactme";
-import Download from "./component/download";
-import Links from "./component/links";
-import Skills from "./component/skills";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+import Mainpage from "./mainpage";
+import Appadmob from "./appadmob";
+import Pivalidation from "./pivalidation";
+import Error from "./component/error";
 
 function App() {
   return (
-    <>
-      <div className="FirstPhase">
-        <Bodyset />
-        <Download />
-        <Links />
-      </div>
-      <div className="SecondPhase">
-        <Aboutme />
-      </div>
-      <div className="ThirdPhase">
-        <Skills />
-        <Contactme />
-      </div>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Mainpage} />
+        <Route exact path="/app-ads.txt" component={Appadmob} />
+        <Route exact path="/validation-key.txt" component={Pivalidation} />
+        <Route component={Error} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
